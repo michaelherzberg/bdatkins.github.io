@@ -3,34 +3,11 @@
   <head>
     <script src="js/fhir-client.min.js"></script>
     <script>
-		FHIR.oauth2.authorize({
-			"token_endpoint_auth_method": "none",
-			"client_name": "UpToDate SMART FHIR Proto1",
-		//	"initiate_login_uri": "https://stage5www.uptodate.com/prototype1",
-			//"redirect_uris": [
-				//"https://stage5www.uptodate.com/prototype1"
-			//],
-			"logo_uri": "https://gallery.smarthealthit.org/img/apps/73.png",
-			"contacts": [
-				"barbara.atkins@wolterskluwer.com",
-				"https://gallery.smarthealthit.org"
-			],
-
-			"scope": "launch/encounter launch openid user/*.* patient/*.read profile launch/patient",
-			//"scope": "launch/patient openid profile",
-			
-//			"grant_types": [
-	//			"authorization_code"
-		//	],
-			"client_id": "823310af-1526-4780-921d-844d7aa35c07",
-			//"client_id_issued_at": 1443041881,
-			//"registration_client_uri": "https://authorize-dstu2.smarthealthit.org/register/12fd5ab4-7a29-4a4f-a155-0fab7c8ba22f",
-			//"response_types": [
-				//"code"
-			//],
-			//"default_acr_values": [],
-			//"request_uris": []
-		});
+	 FHIR.oauth2.authorize({
+        'client_id': '823310af-1526-4780-921d-844d7aa35c07',
+        'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
+      });
+		
     </script>
   </head>
 <body>
