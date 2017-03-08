@@ -289,7 +289,7 @@ function initSelector(patients, launchApp) {
 
 					//console.log(numMos);
 					$('input:radio[name="sp"][value="2"]').prop('checked', true);
-					$('.styledRadio:eq(1)').css("backgroundPosition", "0px -16px");
+					$('.styledRadio:eq(2)').css("backgroundPosition", "0px -16px");
 
 					if (numMos < 24) {
 						$('#pediAge').html("("+weekDiff(new Date(), bday)+" wks)");
@@ -300,7 +300,7 @@ function initSelector(patients, launchApp) {
 					}
 				} else if (age > 17 && age < 122) {
 					$('input:radio[name="sp"][value="1"]').prop('checked', true);
-					$('.styledRadio:eq(2)').css("backgroundPosition", "0px -16px");
+					$('.styledRadio:eq(1)').css("backgroundPosition", "0px -16px");
 					$('#adultAge').html("("+age+" y.o.)");
 				} else {
 					$('input:radio[name="sp"][value="0"]').prop('checked', true);
