@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/fhir-client.js"></script>
+    <script>
+		FHIR.oauth2.ready(function(smart){
+				patientID = smart.patient;
+		});
+		console.log("OAuth Patient ID: " + patientID);	
+    </script>
+  </head>
+<body>
+	<div style="margin:auto; margin-top:25%; width:150px; text-align:center; font-family: Arial, sans-serif;"><center><img src="images/ani.gif" width="144" height="32" border="0" /><br />Ready...</center></div>
+</body>
+</html>

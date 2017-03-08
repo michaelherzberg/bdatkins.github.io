@@ -1,0 +1,119 @@
+.labl { font-weight: normal!important }
+.val { font-weight: bold!important }
+
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 0px;
+
+   font-size: 13px;
+   line-height: 1.2;
+   border: 0;
+   border-radius: 0;
+   height: 25px;
+   -webkit-appearance: none;
+}
+
+.styled-select {
+   width: 220px;
+   height: 25px;
+   overflow: hidden;
+   background: url(../images/arrow-down.png) no-repeat right #fff;
+   border: 1px solid #DFEBFA;
+}
+
+.styledRadio, .styledCheckbox {
+	display: inline-block;
+}
+
+.example {
+	padding: 10px 0 0 10px;
+}
+
+.button{
+	display: block;
+}
+
+.radio-align {
+	display: inline-block;
+	position: relative;
+	top: -3px;
+	left: 4px
+}
+
+div.col-md-6 {
+	font-weight: normal!important;
+	max-width: 296px;
+}
+
+#box {
+	background: url()!important;
+}
+
+.col-sm-10 {
+	border: 1px solid #5391E4;
+	max-height:35px;
+	border-radius: 4px;
+	box-shadow: 2px 2px 1px #CCC;
+	min-width:300px;
+}
+
+body {
+	line-height: 1;
+}
+
+.err {
+	line-height: 1;
+	color:red;
+	font-weight: bold;
+}
+
+.container-fluid {
+	border: 0px #ccc solid;
+	min-width:300px;
+	max-width:312px;
+	margin:auto;
+	margin-top:10px;
+	padding:20px;
+}
+
+.patientPlacement {
+	float:left;
+	height:30px;
+	margin-top:7px;
+}
+
+#logo {
+	position:relative;
+	left:-16px
+}
+
+#patientEx {
+	position:absolute;
+	top:8px;
+	left:20px;
+	z-index:10;
+	width:14px;
+	padding-left:4px;
+	background-color:#DAE8FA;
+	display:none;
+}
+
+#patInfo {
+    padding-top: 6px;
+    position: relative;
+    left: -5px;
+}
+
+#patientInfo {
+	position:relative;
+	*left:-16px;
+	width:auto;
+	min-width:400px;
+}
+
+.searchBtn {
+	z-index:10; 
+	position:relative; 
+	top:-2px;
+}

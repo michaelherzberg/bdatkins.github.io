@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>UpToDate SMART FHIR Search Module</title>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="js/fhir-client.min.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="UpToDate Search Plugin" href="/xml/search.xml" />
+<link rel="stylesheet" type="text/css" href="/css/jquery-ui-1.8rc3.custom.css?hash=77">
+<link rel="stylesheet" type="text/css" href="/css/jquery.qtip.min.css?hash=77">
+<link rel="stylesheet" type="text/css" href="/css/layout.css?hash=77">	
+<link rel="stylesheet" type="text/css" href="/contents/assets/css/UTD_gx_gen.css?hash=5836a582-23.164">
+<link rel="stylesheet" media="print" type="text/css" href="/css/print.css?hash=77"/>
+<link rel="stylesheet" media="print" type="text/css" href="/css/printPreview.css?hash=77"/>
+
+<link rel="stylesheet" type="text/css" href="css/search.css">
+</head>
+<body class=" search ">
+<form target="_UTDsearch" name="tF" action="http://www.uptodate.com/contents/search" method="get">
+	<input type="hidden" name="USER_INPUT" value="" />
+	<!--<input type="hidden" name="sp" value="0" />
+	<input type="hidden" name="searchType" value="PLAIN_TEXT" />-->
+	<input type="hidden" name="source" value="" />
+	<input type="hidden" name="searchControl" value="TOP_PULLDOWN" />
+	<input type="hidden" name="searchOffset" value="" />
+	<input type="hidden" name="respOnlyApp value="True" />
+	
+	<div style="width:280px; margin-left:30px">
+		<!--<div style="float:left; font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-weight:600">Search UpToDate</div>-->
+		<div style="position:relative; left:240px; height:10px; display:none"><a href="#" onClick="if (document.getElementById('qtip-1-content').style.display == 'none') { document.getElementById('qtip-1-content').style.display='block'; } else { document.getElementById('qtip-1-content').style.display='none'; }" style="text-decoration:none">Change my language</a></div>
+		<br />
+		<table><tr><td><img src="images/uptodate.png" /></td><td valign="center">
+			<div id="searchbox_dd">
+				<div id="box">
+					<input id="txtSearch" type="text" name="search" maxlength="500" value="" autocomplete="off" placeholder="" style="width: 200px">
+					<span id="iSearchTerm"></span>					
+	
+					<!--<span id="searchbox_dd_submit" title="Search" onClick="document.tF.submit()">Search</span>-->
+					
+				</div>
+			</div>
+		</td><td><div class="searchBtn" style="margin-left:34px"><input type="button" class="green" value="Search" onClick="document.tF.submit()" /></div></td></tr></table>		
+		<br /><br />		
+		<div id="showMulti" style="display:none">Patient: <select id="patient-list"></select><br /><br /></div>		
+		Rank topics by these search attributes:
+		<br /><br />
+		<input type="radio" class="myRadio" name="sp" value="0">All Topics<br />
+		<input type="radio" class="myRadio"  name="sp" value="1">Adult<br />
+		<input type="radio" class="myRadio"  name="sp" value="2">Pediatric<br />
+		<input type="radio" class="myRadio"  name="sp" value="3">Patient Education<br /><br />
+		<div style="display:none">
+			<input type="radio" name="searchType" value="PLAIN_TEXT" checked="checked" />Plain Text<br />
+			<input type="radio" name="searchType" value="GRAPHICS" />Graphics<br />
+		</div>
+		
+	</div>
+</form>
+
+				<span id="searchbox_dd_type" title="Change Search Type">
+					<span id="searchbox_dd_type_name">All Topics</span>
+				</span>
+				<div id="searchbox_dd_dropdown">
+					<ul id="searchbox_dd_dropdown_topics" class="utd-radio">
+						<li id="searchoption_topic_all" class="active">All Topics</li>
+						<li id="searchoption_topic_adult">Adult </li>
+						<li id="searchoption_topic_pediatric">Pediatric </li>
+						<li id="searchoption_topic_patient">Patient </li>
+					</ul>
+					<ul id="searchbox_dd_dropdown_graphics" class="utd-radio">
+						<li id="searchoption_graphics">Graphics</li>
+					</ul>
+				</div>
+	
+<div id="patientEx" class="expand"><a href="#" onClick="if ($('#exp').attr('src')=='images/chevron.png') { $('#patientInfo').css('height', '165px'); $('#exp').attr('src','images/chevron-expand.png'); } else { $('#patientInfo').css('height', '8px'); $('#exp').attr('src','images/chevron.png'); }"><img src="images/chevron-expand.png" border="0" id="exp" /></a></div>
+<div id="patientInfo" class="embossed gradient"></div>
+	
+<div class="qtip-content" id="qtip-1-content" aria-atomic="true" style="display:none; background-color:#fff; position:relative; top:-210px; left:30px; z-index:10"><div id="setLanguageContainer" style="display: block; visibility: visible;">
+		<div id="setLanguageHeader">Search in your own language:</div>
+		<div id="setLanguageContent">
+		<form method="post" action="">
+			<div class="searchLangText">UpToDate allows you to search in the languages below.  
+				Please select your preference.  Topics will continue to be in English.
+			</div>			
+			<div class="clearfix">
+				<div id="supported_languages">
+					<ul id="supported_languages_left" class="utd-radio">
+						<li id="zh-Hans" class="clearfix"><a class="langpic lngsel-zh-Hans" href="">简体中文</a></li>				
+						<li id="zh-Hant" class="clearfix"><a class="langpic lngsel-zh-Hant" href="">繁體中文</a></li>
+						<li id="de" class="clearfix"><a class="langpic lngsel-de" href="">Deutsch</a></li>
+						<li id="en" class="clearfix active"><a class="langpic lngsel-en" href="">English</a></li>						
+						<li id="es" class="clearfix"><a class="langpic lngsel-es" href="">Español</a></li>					
+					</ul>
+					<ul id="supported_languages_right" class="utd-radio">
+						<li id="fr" class="clearfix"><a class="langpic lngsel-fr" href="">Français</a></li>
+						<li id="it" class="clearfix"><a class="langpic lngsel-it" href="">Italiano</a></li>
+						<li id="ja" class="clearfix"><a class="langpic lngsel-ja" href="">日本語</a></li>					
+						<li id="ko" class="clearfix"><a class="langpic lngsel-ko" href="">한국어</a></li>
+						<li id="pt" class="clearfix"><a class="langpic lngsel-pt" href="">Português</a></li>				
+					</ul>
+				</div>
+			</div>
+			<span class="redBeta" style="display:none">*Currently in beta testing.</span>		
+			<div id="setLanguageButtons">
+				<input id="setLanguageSubmit" type="button" class="submit" value="Submit" onClick="document.getElementById('qtip-1-content').style.display='none'">
+				<input id="setLanguageCancel" type="button" value="Cancel" onClick="document.getElementById('qtip-1-content').style.display='none'">
+			</div>
+		</form>
+		</div>
+	</div></div>
+
+	<h1>  
+	   <span id="patient_name"></span>
+	</h1>
+	<ul id="med_list"></ul>
+	
+	<ul id="autoCompleteList"></ul>
+	<div id="headerShadow"></div>
+	<div id='overflowDropdown'><ul></ul></div>
+		
+	<!--<script type="text/javascript" src="/js/utd.min.js?hash=77"></script>-->	
+	
+	<script src="js/jquery.utd-core.js"></script>
+	<script src="js/jquery.utd-utility.js"></script>
+	<script src="js/jquery.utd-layout.js"></script>
+	<script src="js/jquery.utd-messaging.js"></script>
+	<script src="js/jquery.qtip.js"></script>
+	<script src="js/jquery.utd-localization.js?v=1"></script>
+	<script src="js/jquery.utd-search.js"></script>
+
+	<script src="js/search.js?v=2"></script>
+</body>
+</html>

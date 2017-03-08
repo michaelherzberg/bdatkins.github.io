@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/fhir-client.min.js"></script>
+    <script>
+		FHIR.oauth2.authorize({
+			"token_endpoint_auth_method": "none",
+			"client_name": "UpToDate SMART FHIR Proto1",
+			"initiate_login_uri": "https://stage5www.uptodate.com/prototype1",
+			"redirect_uris": [
+				"https://stage5www.uptodate.com/prototype1"
+			],
+			"logo_uri": "https://gallery.smarthealthit.org/img/apps/73.png",
+			"contacts": [
+				"landon.hall@wolterskluwer.com",
+				"https://gallery.smarthealthit.org"
+			],
+
+			//"scope": "launch/encounter launch openid user/*.* patient/*.read profile launch/patient",
+			"scope": "launch/patient openid profile",
+			"grant_types": [
+				"authorization_code"
+			],
+			"client_id": "264b645a-15fc-4733-816b-1d3a1a2bae4e",
+			"client_id_issued_at": 1443041881,
+			"registration_client_uri": "https://authorize-dstu2.smarthealthit.org/register/12fd5ab4-7a29-4a4f-a155-0fab7c8ba22f",
+			"response_types": [
+				"code"
+			],
+			"default_acr_values": [],
+			"request_uris": []
+		});
+    </script>
+  </head>
+<body>
+	<div style="margin:auto; margin-top:15%; width:150px; text-align:center; font-family: Arial, sans-serif;"><center><img src="images/ani.gif" width="144" height="32" border="0" /><br />Loading...</center></div>
+</body>
+</html>

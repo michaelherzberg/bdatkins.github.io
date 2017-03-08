@@ -1,0 +1,37 @@
+{
+  "resourceType": "Patient",
+  "text": {
+    "status": "generated",
+    "div": "<div>\n        \n            <p>Angela Montgomery</p>\n      \n          </div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "label": "SMART Hospital MRN",
+      "system": "urn:oid:0.1.2.3.4.5.6.7",
+      "value": "7777705"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": [
+        "Montgomery"
+      ],
+      "given": [
+        "Angela"
+      ]
+    }
+  ],
+  "gender": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+        "code": "F",
+        "display": "Female"
+      }
+    ]
+  },
+  "birthDate": "1999-08-24",
+  "active": true
+}

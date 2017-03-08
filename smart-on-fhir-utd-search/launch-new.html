@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/fhir-client.js"></script>
+    <script>
+		FHIR.oauth2.authorize({
+			"token_endpoint_auth_method": "none",
+			"client_name": "UpToDate Search, SMART on FHIR Prototype",
+			"initiate_login_uri": "http://s5www.utdlab.com/prototype1/launch-new.html",
+			"redirect_uris": [
+				"http://s5www.utdlab.com/prototype1"
+			],
+			"logo_uri": "https://gallery.smarthealthit.org/img/apps/73.png",
+			"contacts": [
+				"landon.hall@wolterskluwer.com",
+				"https://gallery.smarthealthit.org"
+			],
+			"scope": "launch/encounter launch openid user/*.* patient/*.read profile launch/patient",
+			"grant_types": [
+				"authorization_code"
+			],
+			"client_id": "302bf46e-c5fa-4700-8f4b-d29f95fa8f30",
+			"client_id_issued_at": 1444062524,
+			"registration_client_uri": "https://authorize-dstu2.smarthealthit.org/register/302bf46e-c5fa-4700-8f4b-d29f95fa8f30",
+			"response_types": [
+				"code"
+			],
+			"default_acr_values": [],
+			"request_uris": []
+		});
+    </script>
+  </head>
+<body>
+	<div style="margin:auto; margin-top:15%; width:150px; text-align:center; font-family: Arial, sans-serif;"><center><img src="images/ani.gif" width="144" height="32" border="0" /><br />Loading...</center></div>
+</body>
+</html>

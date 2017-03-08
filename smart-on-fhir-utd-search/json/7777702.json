@@ -1,0 +1,37 @@
+{
+  "resourceType": "Patient",
+  "text": {
+    "status": "generated",
+    "div": "<div>\n        \n            <p>Yolanda Warren</p>\n      \n          </div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "label": "SMART Hospital MRN",
+      "system": "urn:oid:0.1.2.3.4.5.6.7",
+      "value": "7777702"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": [
+        "Warren"
+      ],
+      "given": [
+        "Yolanda"
+      ]
+    }
+  ],
+  "gender": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+        "code": "F",
+        "display": "Female"
+      }
+    ]
+  },
+  "birthDate": "1998-10-01",
+  "active": true
+}

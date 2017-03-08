@@ -1,0 +1,99 @@
+{
+  "resourceType": "Bundle",
+  "title": "FHIR Atom Feed",
+  "id": "https://fhir-open-api.smarthealthit.org/FamilyHistory/_search?subject%3APatient=7777705",
+  "link": [
+    {
+      "rel": "self",
+      "href": "https://fhir-open-api.smarthealthit.org/FamilyHistory/_search?subject%3APatient=7777705"
+    }
+  ],
+  "totalResults": 2,
+  "updated": "2015-09-14T17:03:33.461-00:00",
+  "author": [
+    {
+      "name": "groovy.config.atom.author-name",
+      "uri": "groovy.config.atom.author-uri"
+    }
+  ],
+  "entry": [
+    {
+      "title": "FamilyHistory/15",
+      "id": "https://fhir-open-api.smarthealthit.org/FamilyHistory/15",
+      "updated": "2015-09-14T17:03:33.461-00:00",
+      "content": {
+        "resourceType": "FamilyHistory",
+        "extension": [
+          {
+            "url": "http://fhir-registry.smarthealthit.org/Profile/family-history#height",
+            "valueQuantity": {
+              "value": 177,
+              "units": "centimeters",
+              "system": "http://unitsofmeasure.org",
+              "code": "cm"
+            }
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div>Data on patient's Father</div>"
+        },
+        "subject": {
+          "reference": "Patient/7777705"
+        },
+        "relation": [
+          {
+            "relationship": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/RoleCode",
+                  "code": "FTH",
+                  "display": "father"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "FamilyHistory/16",
+      "id": "https://fhir-open-api.smarthealthit.org/FamilyHistory/16",
+      "updated": "2015-09-14T17:03:33.461-00:00",
+      "content": {
+        "resourceType": "FamilyHistory",
+        "extension": [
+          {
+            "url": "http://fhir-registry.smarthealthit.org/Profile/family-history#height",
+            "valueQuantity": {
+              "value": 164,
+              "units": "centimeters",
+              "system": "http://unitsofmeasure.org",
+              "code": "cm"
+            }
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "<div>Data on patient's Mother</div>"
+        },
+        "subject": {
+          "reference": "Patient/7777705"
+        },
+        "relation": [
+          {
+            "relationship": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/RoleCode",
+                  "code": "MTH",
+                  "display": "mother"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

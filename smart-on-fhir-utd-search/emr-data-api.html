@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="UpToDate EMR Data API Prototype">
+    <meta name="author" content="Landon Hall">
+
+	<title>UpToDate EMR Data API Prototype</title>
+
+	<!-- jquery -->
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="js/handlebars-v4.0.2.js"></script>
+	<script src="js/nofhir.js"></script>
+
+	<script>
+	function getQS(name) {
+	    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+	    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+	}
+
+	function getToken() {
+		var authAPI="http://localhost:1338/auth"
+
+		// popup window
+		window.location=authAPI;
+	}
+
+
+	function getPatientValidation(patientId) {
+		var proxyAPI="http://localhost:1339/auth?patient="+patientId+"&token="+getQS("token");
+		window.location=proxyAPI;
+	}
+
+	function getPatient(patientId) {
+		//validateToken();
+
+		var nodeProxy = "http://localhost:1338/auth"
+		// Assign handlers immediately after making the request,
+		// and remember the jqxhr object for this request
+		var jqxhr = $.getJSON( nodeProxy+patientId+"&token="+getQS("token"), function() {
+		  console.log( "success" );
+		})
+		  .done(function() {
+			console.log( "second success" );
+		  })
+		  .fail(function() {
+			console.log( "error" );
+		  })
+		  .always(function() {
+			console.log( "complete" );
+		  });
+
+		// Perform other work here ...
+
+		// Set another completion function for the request above
+		jqxhr.complete(function() {
+		  //console.log( "second complete" );
+		  console.log(jqxhr.responseText);
+		  $("#result").html(library.json.prettyPrint(jqxhr));
+		});
+	}
+
+	if (!library)
+	   var library = {};
+
+	library.json = {
+	   replacer: function(match, pIndent, pKey, pVal, pEnd) {
+		  var key = '<span class=json-key>';
+		  var val = '<span class=json-value>';
+		  var str = '<span class=json-string>';
+		  var r = pIndent || '';
+		  if (pKey)
+			 r = r + key + pKey.replace(/[": ]/g, '') + '</span>: ';
+		  if (pVal)
+			 r = r + (pVal[0] == '"' ? str : val) + pVal + '</span>';
+		  return r + (pEnd || '');
+		  },
+	   prettyPrint: function(obj) {
+		  var jsonLine = /^( *)("[\w]+": )?("[^"]*"|[\w.+-]*)?([,[{])?$/mg;
+		  return JSON.stringify(obj, null, 3)
+			 .replace(/&/g, '&amp;').replace(/\\"/g, '&quot;')
+			 .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+			 .replace(jsonLine, library.json.replacer);
+		  }
+	   };
+	</script>
+	<style>
+	pre {
+	   background-color: ghostwhite;
+	   border: 1px solid silver;
+	   padding: 10px 20px;
+	   margin: 20px;
+	   }
+	.json-key {
+	   color: brown;
+	   }
+	.json-value {
+	   color: navy;
+	   }
+	.json-string {
+	   color: olive;
+	   }
+	</style>
+	</head>
+<body>
+
+<b>EMR Data API</b>
+<br /><br />
+Test Harness
+<br /><br />
+<textarea id="token" style="width:100%; height:100px"></textarea>
+<a href="javascript:getToken()">Get Token</a><br />
+
+<div id="patDat" style="display:none">
+	<br /><br />
+	<input type="text" id="pid" value="7777707" style="width:50px">
+	<a href="javascript:getPatientValidation(document.getElementById('pid').value)">Get Patient</a>
+	<br /><br />
+	<code id="result"></code>
+</div>
+
+<script>
+document.getElementById("token").value=getQS("token");
+
+if (document.getElementById("token").value!="")
+	$("#patDat").show();
+</script>
+
+</body>
+</html>
